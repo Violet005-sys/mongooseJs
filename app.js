@@ -8,8 +8,8 @@ const PORT = 3000 || process.env.PORT;
 const { connectDB } = require('./connect/mongoose_URI');
 connectDB();
 
-//functions
-const { createPerson, createPeople, finByIdAndUpdate, findById, findOnePerson, findSomeone, findOneAndUpdate,deleteMany,deleteOne } = require('./functions/controllers');
+//person functions
+const { createPerson, createPeople, finByIdAndUpdate, findById, findOnePerson, findSomeone, findOneAndUpdate,deleteMany,deleteOne } = require('./controllers/person_controllers');
 createPerson();
 /* createPeople();
 finByIdAndUpdate();
@@ -19,6 +19,11 @@ findSomeone();
 findOneAndUpdate();
 deleteMany();
 deleteOne(); */
+
+//user functions
+const { createUser, deleteUser, getUsers, updateUser,createMany } = require('./controllers/user_controllers');
+createUser();
+createMany();
 
 app.get('/', (req, res) => {
     res.send(`Welcome to base`)
